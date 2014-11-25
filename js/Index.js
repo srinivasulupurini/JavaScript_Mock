@@ -4,9 +4,11 @@ var userName = document.getElementById("userName").value;
 var password = document.getElementById("password").value;
 if(userName.length>8){
 alert("user name should be less than 8 chars");
+return;
 }
 if(password.length<6){
 alert("password should be more than 6 chars");
+return;
 }
 var validUser=false;
 var validPassword = false;
@@ -16,10 +18,15 @@ validUser = true;
    if(validUser) {
      if(password==teamC[i][1]){
 	 validPassword=true;
-	 } else{
-	 alert("Invalid password")}
-   }else{
-   alert("invalid user name")}
+	 }
+   }
+}
+}
+if(!validUser){
+alert("Invalid user");
+}else{
+if(!validPassword){
+alert("Invalid password");
 }
 }
 if(validUser && validPassword) {

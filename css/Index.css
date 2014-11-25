@@ -1,0 +1,12 @@
+#header {
+    background-color:grey;
+    color:white;
+	text-align:center;
+    padding:5px;
+}
+#footer {
+    background-color:yellow;
+    color:white;
+	text-align:center;
+    padding:5px;
+}
