@@ -1,30 +1,50 @@
+html, body {
+  /* Make the body to be as tall as browser window */
+  height: 100%;
+  background: #ccc;
+  
+}
 #header {
-    background-color:#eeeeee;
+    background-color:grey;
     color:white;
 	text-align:center;
-    padding:5px;
+    height: 50px;
+	
+}
+#section {
+    background-color:#eee;
+    color:white;
+	text-align:center;
+    height: calc(100% - 50px);
+	
 }
 #navigation {
-    line-height:30px;
-    background-color:#eeeeee;
-    height:300px;
-    width:100px;
+    background-color:lightblue;
     float:left;
-    padding:5px;	      
+    width:150px;
+    height:100%;	
 }
 #feedBlock {
-line-height:30px;
-    background-color:#eeeeee;
-    height:300px;
-    width:10px;
-    float:left;
-    padding:5px;	
+    background-color:#eee;
+    display:inline-block;
+	height:100%;
+	float:right;
+    width:calc(100% - 150px);
+    
 }
 #feed {
-    width:350px;
-    padding:10px;	 	 
+   background-color:#eee;
+   height:100px;   
 }
 #feedList {
-    width:350px;
-    padding:10px;	 	 
+    background-color:#eee;
+	text-align:left;
+	height:calc(100% - 100px);
+	
+}
+ul li {
+    height:50px;
+    width:1000px;
+	padding:2px;
+     background-color:lightblue;	
 }

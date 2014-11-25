@@ -7,8 +7,9 @@
 <body>
 <div id="header">
 <table><tr><td width = "95%">
-My Book </td> <td> <button onclick="signOut();">Sign out</button></td></tr></table>
+<h3>My Book <h3></td> <td> <button onclick="signOut();">Sign out</button></td></tr></table>
 </div>
+<div id="section">
 <div id="navigation">
 <table>
 <tr>
@@ -16,23 +17,25 @@ My Book </td> <td> <button onclick="signOut();">Sign out</button></td></tr></tab
 <tr><td><button onclick="loadProfile();">Profile</button></td></tr>
 </table>
 </div>
+<div id = "profileBlock">
 <div id = "profile">
-<table>
-<tr>
-<td>
-<table>
+<table align="center">
 <tr><td><input id="name" type="text" name="name" placeholder="Name" size="30" onchange="validateInput(this);"/><td >*</td></tr>
 <tr><td><input id="age" type="text" name="age" placeholder="Age" size="30" onchange="validateInput(this);"//></td><td >*</td></tr>
 <tr><td><input id="phone" type="text" name="phone" placeholder="Phone" size="30" onchange="validateInput(this);"//></td><td >*</td></tr>
 <tr><td><input id="email" type="text" name="email" placeholder="Email" size="30" onchange="validateInput(this);"//></td><td >*</td></tr>
-<tr><td><input id="address" type="text" name="address" placeholder="Address" /></td></tr>
+<tr><td><textarea id="address" name="address" cols="30" rows="4" placeholder="Address"></textarea></td></tr>
 <tr><td><input id="profilePath" type="file" name="datafile" size="40" placeholder="Profile Image" onchange="onFileSelected(event)"></tr>
 <tr><td><button id="save" onclick="saveProfile();" disabled="true">save</button></td></tr>
 </table>
-</td>
-<td><img id="profilePic" src="images.jpg" alt="Smiley face" height="200" width="200"></td>
-</tr>
-</table>
 </div>
+<div id = "profileImage">
+<table align="center"><tr><td>
+<img id="profilePic" src="images.jpg" alt="Profile pic" width="200" height="200"></td></tr></table>
+</div>
+
+</div>
+</div>
+
 </body>
 </html>

@@ -1,15 +1,49 @@
-
+html, body {
+  /* Make the body to be as tall as browser window */
+  height: 100%;
+  background: #ccc;
+  
+}
 #header {
-    background-color:#eeeeee;
+    background-color:grey;
     color:white;
 	text-align:center;
-    padding:5px;
+    height: 50px;
+	
+}
+#section {
+    background-color:#eee;
+    color:white;
+	text-align:center;
+    height: calc(100% - 50px);
+	
 }
 #navigation {
-    line-height:30px;
-    background-color:#eeeeee;
-    height:300px;
-    width:100px;
+    background-color:lightblue;
     float:left;
-    padding:5px;	      
+    width:150px;
+    height:100%;	
 }
+#profileBlock {
+    background-color:#eee;
+    height:100%;
+	float:right;
+    width:calc(100% - 150px);
+    
+}
+#profile {
+   background-color:lightgrey;
+   display:inline-block;
+   width:40%;
+   height:100%;
+   text-align:center;
+}
+#profileImage {
+    background-color:lightgrey;
+	text-align:left;
+	width:60%;
+	height:100%;
+	float:right;
+}
+   
+
