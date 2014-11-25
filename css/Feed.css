@@ -1,0 +1,30 @@
+#header {
+    background-color:#eeeeee;
+    color:white;
+	text-align:center;
+    padding:5px;
+}
+#navigation {
+    line-height:30px;
+    background-color:#eeeeee;
+    height:300px;
+    width:100px;
+    float:left;
+    padding:5px;	      
+}
+#feedBlock {
+line-height:30px;
+    background-color:#eeeeee;
+    height:300px;
+    width:10px;
+    float:left;
+    padding:5px;	
+}
+#feed {
+    width:350px;
+    padding:10px;	 	 
+}
+#feedList {
+    width:350px;
+    padding:10px;	 	 
+}

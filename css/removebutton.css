@@ -1,0 +1,9 @@
+  remove.myImageButton {
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  text-indent: -3000px;
+  background: url(/Images/remove.jpg) no-repeat 50% 50%;
+  /* width: 20%; */
+  height: 100%;
+}
