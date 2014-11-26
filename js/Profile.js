@@ -1,5 +1,6 @@
 "use strict";
 var profiles=[];
+//profile object constructor
 function Profile(name,age,phone,email,address){
 this.name = name;
 this.age=age;
@@ -15,7 +16,7 @@ Profile.prototype.setImage=function(imgPath){
 this.imgPath = imgPath;
 }
 
-
+//defining profile service
 var PROFILESERVICE = (function(){
 return{
    saveProfile:function(name,age,phone,email,address){
@@ -28,6 +29,7 @@ return{
 }
 })();
 
+//saving profile using profile service functions
 function saveProfile(){
 var name=document.getElementById("name").value;
 var age=document.getElementById("age").value;
@@ -45,6 +47,7 @@ alert("Error while saving the profile:"+error.message);
 location.reload();
 }
 
+//reading the image contents
 function onFileSelected(event) {
   var selectedFile = event.target.files[0];
   var reader = new FileReader();
@@ -59,14 +62,17 @@ function onFileSelected(event) {
   reader.readAsDataURL(selectedFile);
 }
 
+//loading the feed page
 function loadFeed(){
 window.location = "Feed.html"; 
 }
 
+//signout
 function signOut(){
 window.location = "Index.html";
 }
 
+//adding form validations
 function validateName(value){
 if(value.length>50){
 alert("name should be less than 50 char");
@@ -91,6 +97,7 @@ document.getElementById("phone").value="";
 }
 }
 
+//validate input
 function validateInput(element){
 var value = element.value;
 var elementName =element.name; 
@@ -109,6 +116,7 @@ validatePhone(value);
 enableSave();	  
 }
 
+//enable save after all mandatory fields filled.
 function enableSave(){
 var name=document.getElementById("name").value;
 var age=document.getElementById("age").value;

@@ -68,7 +68,7 @@ return isUrl;
 	   
 	  }
  })();
- 
+    //adding feed 
     function postFeed() {
 	var feedText = document.getElementById("feedInput").value;
 	try{
@@ -77,7 +77,7 @@ return isUrl;
 	alert("Error while adding the feed:"+error.message);}
     refreshFeedView(array);
 	}
-
+    //deleting selected feed
 	function deleteFeed(id){
 	try{
 	FEEDSERVICE.deleteFeed(id);
@@ -87,6 +87,7 @@ return isUrl;
 	refreshFeedView(feedArray);
 	}
 	
+	//signing out
 	function signOut(){
 	window.location="Index.html";
 	}
@@ -95,6 +96,7 @@ return isUrl;
 	window.location=url;
 	}
 	
+	//after adding and deleting feeds refreshing the list view
 	 function refreshFeedView(array){
 	  var list = document.createElement('ul');
        for(var i = 0; i < array.length; i++) {
@@ -116,7 +118,7 @@ return isUrl;
 		var feed = document.createElement("div");
 			feed.style.width = "490px";
 			feed.style.height = "40px";
-			feed.style.background = "orange";
+			feed.style.background = "grey";
 			feed.style.display="inline-block";
 			feed.style.padding="5px";
 		   feed.innerHTML = array[i].text;
@@ -126,7 +128,7 @@ return isUrl;
 		var dateDiv = document.createElement("div");
 			dateDiv.style.width = "200px";
 			dateDiv.style.height = "40px";
-			dateDiv.style.background = "orange";
+			dateDiv.style.background = "grey";
 			dateDiv.style.display="inline-block";
 			dateDiv.style.padding="5px";
 			dateDiv.innerHTML = today.toLocaleString();
@@ -137,7 +139,7 @@ return isUrl;
 			remove.innerHTML = "x";
 			remove.style.width = "30px";
 			remove.style.height = "40px";
-			remove.style.background = "orange";
+			remove.style.background = "grey";
 			remove.style.display="inline-block";
 			remove.style.padding="5px";
 		item.appendChild(remove);
@@ -151,6 +153,6 @@ return isUrl;
 	document.getElementById('feedList').appendChild(list);
 	 }
 	 
-	  
+ //load profile page	  
   function loadProfile(){
   window.location="Profile.html";}

@@ -25,7 +25,7 @@ html, body {
     height:100%;	
 }
 #feedBlock {
-    background-color:#eee;
+    background-color:lightgrey;
     display:inline-block;
 	height:100%;
 	float:right;
@@ -33,11 +33,11 @@ html, body {
     
 }
 #feed {
-   background-color:#eee;
+   background-color:lightgrey;
    height:100px;   
 }
 #feedList {
-    background-color:#eee;
+    background-color:lightgrey;
 	text-align:left;
 	height:calc(100% - 100px);
 	

@@ -1,4 +1,5 @@
 "use strict";
+//authenticating user credentials
 function authenticate(){
 var teamC=[["srini","srini123"],["sunil","sunil123"],["rajesh","rajesh123"]];
 var userName = document.getElementById("userName").value;

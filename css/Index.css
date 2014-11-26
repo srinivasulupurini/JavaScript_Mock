@@ -3,10 +3,12 @@
     color:white;
 	text-align:center;
     padding:5px;
+	height:10%;
 }
 #footer {
-    background-color:yellow;
+    background-color:lightgrey;
     color:white;
 	text-align:center;
     padding:5px;
+	height:90%;
 }
