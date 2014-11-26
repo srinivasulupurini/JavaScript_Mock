@@ -38,35 +38,13 @@ isUrl =true;
 }
 return isUrl;
 }
-//add feeds based on type
-function addFeed(){
-var feedText = document.getElementById("feedInput").value;
-var type =  isUrlFeed(feedText);
-var id = new Date();
-if(type){
-//debugger;
-var urlFeed = new URLFeed();
-urlFeed.type = "URLFeed";
-urlFeed.id = id;
-urlFeed.url = feedText;
-feedArray.push(urlFeed)
-}else{
-debugger;
-var textFeed = new TextFeed();
-textFeed.type = "TextFeed";
-textFeed.id = id;
-textFeed.text = feedText;
-feedArray.push(textFeed);
-}
-return feedArray;
-}
 
 //feedservice closure
  var FEEDSERVICE = (function(){
       return{
 	   addFeed:function(feedText){
 	    var type =  isUrlFeed(feedText);
-		var id = new Date();
+		var id = feedArray.length || 0;
 		if(type){
 		//debugger;
 		var urlFeed = new URLFeed();
@@ -122,19 +100,46 @@ return feedArray;
        for(var i = 0; i < array.length; i++) {
         var item = document.createElement('li');
 		item.class="feedItem";
+		
 		if(array[i] instanceof URLFeed) {
-		var urlElement = document.createElement("a");
-		urlElement.innerHTML=array[i].url;
-		urlElement.href=array[i].url;
-		item.appendChild(urlElement);
+		var urlFeed = document.createElement("a");
+			urlFeed.style.width = "490px";
+			urlFeed.style.height = "40px";
+			urlFeed.style.background = "orange";
+			urlFeed.style.display="inline-block";
+			urlFeed.style.padding="5px";
+			urlFeed.innerHTML=array[i].url;
+			urlFeed.href=array[i].url;		
+			item.appendChild(urlFeed);
+		
 		} else {
-		item.appendChild(document.createTextNode(array[i].text));
+		var feed = document.createElement("div");
+			feed.style.width = "490px";
+			feed.style.height = "40px";
+			feed.style.background = "orange";
+			feed.style.display="inline-block";
+			feed.style.padding="5px";
+		   feed.innerHTML = array[i].text;
+		   item.appendChild(feed);
 		}
-		item.appendChild(document.createTextNode(array[i].id));
+		var today = new Date();
+		var dateDiv = document.createElement("div");
+			dateDiv.style.width = "200px";
+			dateDiv.style.height = "40px";
+			dateDiv.style.background = "orange";
+			dateDiv.style.display="inline-block";
+			dateDiv.style.padding="5px";
+			dateDiv.innerHTML = today.toLocaleString();
+		item.appendChild(dateDiv);
 		var remove = document.createElement("a");
-		 remove.setAttribute('href', '#');
-		 remove.setAttribute('onClick', 'deleteFeed('+i+')');
-		remove.innerHTML = "x";
+			remove.setAttribute('href', '#');
+			remove.setAttribute('onClick', 'deleteFeed('+i+')');
+			remove.innerHTML = "x";
+			remove.style.width = "30px";
+			remove.style.height = "40px";
+			remove.style.background = "orange";
+			remove.style.display="inline-block";
+			remove.style.padding="5px";
 		item.appendChild(remove);
         list.appendChild(item);
     }
