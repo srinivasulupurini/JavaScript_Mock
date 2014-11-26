@@ -35,9 +35,13 @@ var phone=document.getElementById("phone").value;
 var email=document.getElementById("email").value;
 var address=document.getElementById("address").value;
 var profilePic = document.getElementById("profilePath").value;
+try{
 var profiles=PROFILESERVICE.saveProfile(name,age,phone,email,address);
 var addedProfile = profiles[profiles.length-1];
 alert("added Profile with name,age,email,phone::::"+addedProfile.name+","+addedProfile.age+","+addedProfile.email+","+addedProfile.phone);
+} catch(error) {
+alert("Error while saving the profile:"+error.message);
+}
 location.reload();
 }
 

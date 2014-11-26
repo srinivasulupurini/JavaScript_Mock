@@ -93,12 +93,19 @@ return feedArray;
  
     function postFeed() {
 	var feedText = document.getElementById("feedInput").value;
+	try{
     var array = FEEDSERVICE.addFeed(feedText);
+	} catch(error){
+	alert("Error while adding the feed:"+error.message);}
     refreshFeedView(array);
 	}
 
 	function deleteFeed(id){
+	try{
 	FEEDSERVICE.deleteFeed(id);
+	}catch(error){
+	alert("Error while deleting the feed"+error.message);
+	}
 	refreshFeedView(feedArray);
 	}
 	
