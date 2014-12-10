@@ -4,25 +4,21 @@ html, body {
   background: #ccc;
   
 }
+
+
 #header {
-    background-color:grey;
-    color:white;
-	text-align:center;
-    height: 50px;
-	
-}
-#section {
-    background-color:#eee;
-    color:white;
-	text-align:center;
-    height: calc(100% - 50px);
-	
-}
-#navigation {
     background-color:lightblue;
-    float:left;
+    text-align:center;
+    height: 50px;
+    padding-right:20px;
+	
+}
+#sidebar-wrapper{
+	background-color:lightblue;
+	height:100%;
+	float:left;
     width:150px;
-    height:100%;	
+    height: calc(100%-50px);
 }
 #feedBlock {
     background-color:lightgrey;
@@ -46,5 +42,5 @@ ul li {
     height:50px;
     width:750px;
 	padding:2px;
-     background-color:lightblue;	
+    background-color:lightblue;	
 }

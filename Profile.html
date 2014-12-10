@@ -1,41 +1,71 @@
-<html>
+<html ng-app="bookApp">
 <head>
-<link rel="stylesheet" type="text/css" href="./css/Profile.css">
-<script src = "./js/Profile.js">
-</script>
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="css/Profile.css" rel="stylesheet">
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.min.js"></script> 
+<script type="text/javascript" src="https://code.angularjs.org/1.2.18/angular-route.js"></script>
+<script  src="js/Index.js"></script>	
 </head>
-<body>
-<div id="header">
-<table><tr><td width = "95%">
-<h3>My Book <h3></td> <td> <button onclick="signOut();">Sign out</button></td></tr></table>
+
+<body ng-controller="profileCtrl">
+<div id="header" class="row">
+<div class="col-sm-10"><h4>My Book</h4></div>
+<div class="col-sm-2">	<button class="btn btn-primary" ng-click="signOut()">Sign out</button></div>
 </div>
+
 <div id="section">
-<div id="navigation">
-<table>
-<tr>
-<td><button onclick="loadFeed();">Feed</button></td></tr>
-<tr><td><button onclick="loadProfile();">Profile</button></td></tr>
-</table>
+
+<div id="sidebar-wrapper" class='col-sm-2'>
+	<ul class="list-group" style="background-color: lightblue;">
+     <li class="list-group-item"><button class="btn btn-primary" ng-click="redirectToProfile()">Profile</button></li>       
+     <li class="list-group-item"><button class="btn btn-primary"ng-click="redirectToFeed()">Feed</button></li>
+     </ul>       
+            
+ </div>
+
+<div id = "profile" class='col-sm-5'>
+<form name="profileForm" ng-submit="doSomething()">
+	<div class="form-group">
+	<input id="name" type="text" name="name" placeholder="Name" size="30" ng-model="name" ng-required="true" ng-maxlength="50" style="display: inline"/>
+	<span class="help-block"   ng-show="profileForm.name.$error.maxlength">Name should be less than 50 chars</span>
+	<span class="help-block"   ng-show="profileForm.name.$dirty && profileForm.name.$error.required">Please provide a name</span>
+	</div>
+	
+	<div class="form-group" width="30%">
+	<input id="age" type="number" name="age" placeholder="Age" size="100" ng-model="age" min="0" max="100"/>
+	</div>
+	
+	<div class="form-group">
+	<input id="phone" type="num" name="phone" placeholder="Phone" size="30" ng-model="phone" ng-minlength="10" ng-maxlength="10" ng-required="true"/>
+	<span class="help-block"   ng-show="profileForm.phone.$error.minlength">Number should contain 10 digits</span>
+	<span class="help-block"   ng-show="profileForm.phone.$error.maxlength">Number should contain 10 digits</span>
+	<span class="help-block"   ng-show="profileForm.phone.$dirty && profileForm.phone.$error.required">Please provide mobile number</span>
+	</div>
+	
+	<div class="form-group">
+	<input id="email" type="email" name="email" placeholder="Email" size="30" ng-model="email" ng-required="true"/>	
+	<span class="help-block"   ng-show="profileForm.email.$error.email">Please provide valid email</span>
+	</div>
+	
+	<div class="form-group">
+	<textarea id="address" name="address" cols="32" rows="4" placeholder="Address" ng-model="address"></textarea>	
+	</div>
+	
+	<div class="form-group">
+	<input  type="file" id="profilePath" onchange="onFileSelected(event)"   placeholder="Profile Image"/>	
+	</div>
+	
+	<div class="form-group">
+		<button class="btn btn-primary" id="save" ng-click="saveProfile()" >save</button>
+	</div>
+</form>
 </div>
-<div id = "profileBlock">
-<div id = "profile">
-<table align="center">
-<tr><td><input id="name" type="text" name="name" placeholder="Name" size="30" onchange="validateInput(this);"/><td >*</td></tr>
-<tr><td><input id="age" type="text" name="age" placeholder="Age" size="30" onchange="validateInput(this);"/></td><td >*</td></tr>
-<tr><td><input id="phone" type="text" name="phone" placeholder="Phone" size="30" onchange="validateInput(this);"/></td><td >*</td></tr>
-<tr><td><input id="email" type="text" name="email" placeholder="Email" size="30" onchange="validateInput(this);"/></td><td >*</td></tr>
-<tr><td><textarea id="address" name="address" cols="32" rows="4" placeholder="Address"></textarea></td></tr>
-<tr><td><input id="profilePath" type="file" name="datafile" size="40" placeholder="Profile Image" onchange="onFileSelected(event)"></tr>
-<tr><td><button id="save" onclick="saveProfile();" disabled="true">save</button></td></tr>
-</table>
-</div>
-<div id = "profileImage">
+
+<div id = "profileImage" class='col-sm-5'>
 <table align="center"><tr><td>
-<img id="profilePic" src="images.jpg" alt="Profile pic" width="200" height="200"></td></tr></table>
+<img id="profilePic" src="{{profilePic.src}}" alt="Profile pic" width="200" height="200" ng-model="profilePic"></td></tr></table>
 </div>
 
 </div>
-</div>
-
 </body>
 </html>

@@ -1,14 +1,15 @@
-#header {
-    background-color:grey;
-    color:white;
-	text-align:center;
-    padding:5px;
-	height:10%;
+html, body {
+  /* Make the body to be as tall as browser window */
+  height: 100%;
+  width:100%;
+ }
+#header
+{
+  background-color:lightgrey;
+  height:20%;
 }
-#footer {
-    background-color:lightgrey;
-    color:white;
-	text-align:center;
-    padding:5px;
-	height:90%;
+#footer
+{
+  height:80%;
+  
 }

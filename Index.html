@@ -1,17 +1,44 @@
-<html>
+<html ng-app="bookApp">
 <head>
-<link rel="stylesheet" type="text/css" href="./css/Index.css">
-<script src="./js/Index.js">
-</script>
+	<title>My Book</title>
+	<meta name="description" content="">
+	<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/Index.css" rel="stylesheet">
+	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.min.js"></script> 
+	
+	<script type="text/javascript" src="https://code.angularjs.org/1.2.18/angular-route.js"></script>
+	<script  src="js/Index.js"></script>
 </head>
-<body>
-<div id="header">
-<table><tr>
-<td width = "68%"><h3>My Book<h3></td> <td><input type="text" id="userName" placeholder="User Name"/></td><td> <input type="password" id="password" placeholder="password"/></td><td> <button onclick="authenticate();">Sign In</button></td></tr>
-</table>
+
+<body ng-controller="loginCtrl">
+<div id="header" class="row">
+	
+<div class="col-sm-6">
+<h3>My Book<h3>
 </div>
+
+<div id="inputForm" class="form-group" style="margin:15px;"  >
+
+<div class="col-sm-2" id="userName">
+<input type="text" placeholder="User Name" ng-model="userName" class="form-control" ng-maxlength="8"/>
+</div>
+<span class="error" ng-show="inputForm.userName.$error.maxlength">
+    user name should be less than 8 chars</span>
+<div class="col-sm-2" id="password">
+ <input type="password" id="password" placeholder="password" class="form-control" ng-model="password" ng-minlength="6"></input>
+</div>
+
+<div class="col-sm-2">
+	<button type="submit" ng-click="authenticate()" class="btn btn-primary">Sign In</button>
+</div>
+
+</div><!--end of form -->
+
+</div> <!-- end of row -->
+
 <div id="footer">
-<img src="./css/images/tides.jpg"  height="97%" width="100%">
+<img src="./css/images/html.jpg"  height="97%" width="100%">
 </div>
+
 </body>
 </html>

@@ -1,31 +1,50 @@
-<html>
+<html ng-app="bookApp">
 <head>
-<link rel="stylesheet" type="text/css" href="./css/Feed.css">
-<script src = "./js/Feed.js">
-</script>
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="css/Feed.css" rel="stylesheet">
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.min.js"></script> 
+<script type="text/javascript" src="https://code.angularjs.org/1.2.18/angular-route.js"></script>
+<script  src="js/Index.js"></script>	
 </head>
-<body>
-<div id="header">
-<table><tr><td width = "95%">
-<h3>My Book <h3></td> <td> <button onclick="signOut();">Sign out</button></td></tr></table>
+<body ng-controller="feedCtrl">
+<div id="header" class="row">
+<div class="col-sm-10"><h4>My Book</h4></div>
+<div class="col-sm-2">	<button class="btn btn-primary" ng-click="signOut()">Sign out</button></div>
 </div>
-<div id="section">
-<div id="navigation">
-<table>
-<tr>
-<td><button>Feed</button></td></tr>
-<tr><td><button onclick="loadProfile();">Profile</button></td></tr>
-</table>
-</div>
-<div id="feedBlock">
+
+<div id="section" class="row">
+
+<div id="sidebar-wrapper" class='col-sm-2'>
+	<ul class="list-group" style="background-color: yellow;">
+     <li class="list-group-item"><button class="btn btn-primary" ng-click="redirectToProfile()">Profile</button></li>       
+     <li class="list-group-item"><button class="btn btn-primary">Feed</button></li>
+     </ul>       
+            
+ </div>
+ 
+<div id="feedBlock" class="col-sm-10">
+	
 <div id = "feed">
-<table>
-<tr><td width="90%">
-<input type="text" id="feedInput" name="feed" placeholder="Text feed or URL feed" size="100"/></td><td><button onclick="postFeed();">Post</button></td></tr>
-</table>
+<input type="text" id="feedInput" name="feed" placeholder="Text feed or URL feed" size="100" ng-model="feedIn"/>
+<button class="btn btn-primary" ng-click="postFeed()">Post</button>
 </div>
+
 <div id= "feedList">
+	<ul>
+    <li  ng-repeat="(feedIndex,feed) in feedList">
+    	
+    	<div style="display:inline;" ng-show="feed.type=="TextFeed"">{{feed.text}}</div>
+    	<div style="display:inline;" ng-show="feed.type=="URLFeed""><a href="{{feed.url}}">{{feed.url}}</a></div>	
+        <div style="display:inline;">{{curDate}}</div>
+        <div style="display:inline;"><a href ng-click="deleteFeed(feedIndex)">x</a></div>
+    </li>
+    
+  </ul>
 </div>
+	
 </div>
+
+</div>
+
 </body>
 </html>
